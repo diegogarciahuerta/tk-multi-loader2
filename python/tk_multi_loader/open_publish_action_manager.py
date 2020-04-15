@@ -68,8 +68,8 @@ class OpenPublishActionManager(ActionManager):
 
         # connect the default action so that the default_action_triggered
         # is emitted:
-        default_action_cb = lambda sg=sg_data: self.default_action_triggered.emit(sg)
-        action.triggered[()].connect(default_action_cb)
+        default_action_cb = partial(self.default_action_triggered.emit, sg_data)
+        action.triggered.connect(default_action_cb)
 
         return action
 

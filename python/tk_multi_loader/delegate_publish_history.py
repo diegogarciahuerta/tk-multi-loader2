@@ -185,7 +185,7 @@ class SgPublishHistoryDelegate(shotgun_view.EditSelectedWidgetDelegate):
 
             fn = lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl(url))
             a = QtGui.QAction("View in Media Center", None)
-            a.triggered[()].connect(fn)
+            a.triggered.connect(fn)
             actions.append(a)
 
         # add actions to actions menu
